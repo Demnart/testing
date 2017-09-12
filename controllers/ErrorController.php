@@ -15,7 +15,7 @@ extends AppController
 
     public function actionError()
     {
-        $this->layout=false;
+        $this->layout='error';
         return $this->render('error');
     }
 }
