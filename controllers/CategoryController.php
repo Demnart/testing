@@ -43,4 +43,18 @@ extends AppController
         return $this->render('view',compact('pages','products','category'));
 
     }
+
+    public function actionSearch()
+    {
+        $name = \Yii::$app->request->get('name');
+
+        $query = Product::find()->where(['like','name',$name]);
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 3, 'pageSizeParam' => false, 'forcePageParam' => false]);
+        $products = $query->offset($pages->offset)->limit($pages->limit)->all();
+
+        $this->setMeta('E-SHOPPER | ' . $name);
+        return $this->render('view',compact('pages','products','name'));
+
+    }
+
 }
