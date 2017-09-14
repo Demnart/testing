@@ -46,14 +46,17 @@ extends AppController
 
     public function actionSearch()
     {
-        $name = \Yii::$app->request->get('name');
-
-        $query = Product::find()->where(['like','name',$name]);
+        $name = trim(\Yii::$app->request->get('search'));
+        if(!$name)
+        {
+            return $this->render('search');
+        }
+        $query = Product::find()->where(['like', 'name' , $name]);
         $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 3, 'pageSizeParam' => false, 'forcePageParam' => false]);
         $products = $query->offset($pages->offset)->limit($pages->limit)->all();
 
         $this->setMeta('E-SHOPPER | ' . $name);
-        return $this->render('view',compact('pages','products','name'));
+        return $this->render('search',compact('pages','products','name'));
 
     }
 
