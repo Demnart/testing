@@ -15,6 +15,20 @@
 	 $('#cart').modal();
  }
 
+ function clearCart() {
+     $.ajax({
+         url: '/cart/clear-cart',
+         type: 'GET',
+         success: function (rec) {
+             if(!rec) alert('Error');
+             showCart(rec);
+         },
+         error: function () {
+             alert('error')
+         }
+     });
+ }
+
 $('.add-to-cart').on('click', function (e) {
     e.preventDefault();
     var id = $(this).data('id');
