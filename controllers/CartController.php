@@ -9,17 +9,26 @@
 namespace app\controllers;
 
 
+use app\models\Cart;
+use app\models\Product;
+
 class CartController
 extends AppController
 {
     public function actionAddCart()
     {
         $id = \Yii::$app->request->get('id');
-        if (!$id)
+        $product = Product::findOne($id);
+        if (!$product)
         {
             return false;
         }
-        debug($id);
+        $session = \Yii::$app->session;
+        $session->open();
+        $cart = new Cart();
+        $cart->addToCart($product);
+        $this->layout = false;
+        return $this->render('cart-modal',compact('session'));
     }
 
 }
