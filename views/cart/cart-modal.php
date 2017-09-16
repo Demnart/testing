@@ -18,17 +18,17 @@ if (!empty($session['cart'])): ?>
                         <td><?= $item['name']?></td>
                         <td><?= $item['qty']?></td>
                         <td><?= $item['price']?></td>
-                        <td<span class="glyphicon glyphicon-remove text-danger del-item"  aria-hidden="true"></span></td>
+                        <td><span class="glyphicon glyphicon-remove text-danger del-item"  aria-hidden="true"></span></td>
                     </tr>
+                <?php endforeach;?>
                     <tr>
-                        <td>Итого: </td>
-                        <td colspan="4"><?= $session['cart.qty']?></td>
+                        <td colspan="4">Итого: </td>
+                        <td ><?= $session['cart.qty']?></td>
 
                     <tr>
-                        <td>На сумму: </td>
-                        <td colspan="4"><?= $session['cart.sum']?></td>
+                        <td colspan="4">На сумму: </td>
+                        <td ><?= $session['cart.sum']?></td>
                     </tr>
-                 <?php endforeach;?>
             </tbody>
         </table>
     </div>
