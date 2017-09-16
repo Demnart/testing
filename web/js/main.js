@@ -10,7 +10,22 @@
    speed:300
  });
 
-
+$('.add-to-cart').on('click', function (e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    $.ajax({
+        url: '/cart/add-cart',
+        data: {id: id},
+        type: 'GET',
+        success: function (rec) {
+        	if(!rec) alert('Error');
+            console.log(rec)
+        },
+        error: function () {
+            alert('error')
+        }
+    });
+});
 		
 /*scroll to top*/
 
