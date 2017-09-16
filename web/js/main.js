@@ -10,6 +10,11 @@
    speed:300
  });
 
+ function showCart(cart) {
+	 $('#cart .modal-body').html(cart);
+	 $('#cart').modal();
+ }
+
 $('.add-to-cart').on('click', function (e) {
     e.preventDefault();
     var id = $(this).data('id');
@@ -19,8 +24,8 @@ $('.add-to-cart').on('click', function (e) {
         type: 'GET',
         success: function (rec) {
         	if(!rec) alert('Error');
-            console.log(rec)
-			//show();
+            // console.log(rec)
+			showCart(rec);
         },
         error: function () {
             alert('error')

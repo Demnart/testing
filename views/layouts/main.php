@@ -317,9 +317,10 @@ LtAppAsset::register($this);
         Modal::begin([
                 'header' => 'Корзина',
                 'id' => 'cart',
+                'size' => 'modal-lg' ,
                 'footer' => ' <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить Покупки</button>
                              <button type="button" class="btn btn-success">Оформить заказ</button>
-                             <button type="button" class="btn btn-danger">Очистить корзину</button>
+                             <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>
                              '
         ]);
         Modal::end();
