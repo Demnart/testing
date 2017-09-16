@@ -20,6 +20,7 @@ $('.add-to-cart').on('click', function (e) {
         success: function (rec) {
         	if(!rec) alert('Error');
             console.log(rec)
+			//show();
         },
         error: function () {
             alert('error')
