@@ -15,6 +15,10 @@ extends AppController
     public function actionAddCart()
     {
         $id = \Yii::$app->request->get('id');
+        if (!$id)
+        {
+            return false;
+        }
         debug($id);
     }
 
