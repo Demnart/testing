@@ -41,4 +41,15 @@ extends AppController
         $this->layout = false;
         return $this->render('cart-modal',compact('session'));
     }
+
+    public function actionClearOne()
+    {
+        $id = \Yii::$app->request->get('id');
+        $session = \Yii::$app->session;
+        $session->open();
+        $cart = new Cart();
+        $cart->removeItem($id);
+        $this->layout = false;
+        return $this->render('cart-modal',compact('session'));
+    }
 }
