@@ -767,6 +767,9 @@ h2.title:before{
   padding-left: 20px;
 }
 
+.del-item{
+  cursor: pointer;
+}
 
 .panel-body ul li a{
   color: #696763;
