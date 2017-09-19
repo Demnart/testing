@@ -15,6 +15,20 @@
 	 $('#cart').modal();
  }
 
+ function seeCart() {
+     $.ajax({
+         url: '/cart/show-cart',
+         type: 'GET',
+         success: function (rec) {
+             if(!rec) alert('Error');
+             showCart(rec);
+         },
+         error: function () {
+             alert('error')
+         }
+     });
+ }
+
  function clearCart() {
      $.ajax({
          url: '/cart/clear-cart',
@@ -37,7 +51,6 @@
          type: 'GET',
          success: function (rec) {
              if(!rec) alert('Error');
-              console.log(rec);
              showCart(rec);
          },
          error: function () {
@@ -55,7 +68,6 @@ $('.add-to-cart').on('click', function (e) {
         type: 'GET',
         success: function (rec) {
         	if(!rec) alert('Error');
-            // console.log(rec)
 			showCart(rec);
         },
         error: function () {
