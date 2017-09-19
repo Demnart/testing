@@ -126,7 +126,7 @@ use yii\helpers\Html;
                                     <?= Html::img("@web/images/products/{$hit->img}",['alt' => $hit->name])?>
                                     <h2>$<?= $hit->price?></h2>
                                     <a href="<?= \yii\helpers\Url::to(['product/view','id'=>$hit->id])?>"><p><?= $hit->name?></p></a>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a href="#" class="btn btn-default add-to-cart" data-id = <?= $hit->id?>><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
                                 <?php if ($hit->new == 1):?>
                                     <?= Html::img("@web/images/home/new.png",['class' =>'new'])?>

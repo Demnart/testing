@@ -65,7 +65,8 @@ use yii\widgets\LinkPager;
                                         <?= Html::img("@web/images/products/{$product->img}",['alt'=>$product->name])?>
                                         <h2>$<?= $product->price?></h2>
                                         <a href="<?= \yii\helpers\Url::to(['product/view','id'=>$product->id])?>"><p><?= $product->name?></p></a>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="#" class="btn btn-default add-to-cart" data-id = <?=$product->id?>><i class="fa fa-shopping-cart"></i>Add to cart</a>
+
                                     </div>
                                     <?php if ($product->new == 1):?>
                                         <?= Html::img("@web/images/home/new.png",['class' =>'new'])?>
