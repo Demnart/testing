@@ -10,6 +10,7 @@ namespace app\controllers;
 
 
 use app\models\Cart;
+use app\models\Order;
 use app\models\Product;
 
 class CartController
@@ -29,6 +30,10 @@ extends AppController
         $session->open();
         $cart = new Cart();
         $cart->addToCart($product,$qty);
+        if (!\Yii::$app->request->isAjax)
+        {
+            return $this->redirect(\Yii::$app->request->referrer);
+        }
         $this->layout = false;
         return $this->render('cart-modal',compact('session'));
     }
@@ -66,6 +71,13 @@ extends AppController
 
     public function actionView()
     {
-        return $this->render('view');
+        $session = \Yii::$app->session;
+        $session->open();
+        $order = new Order();
+        if ($order->load(\Yii::$app->request->post()))
+        {
+            debug(\Yii::$app->request->post());
+        }
+        return $this->render('view',compact('session','order'));
     }
 }
