@@ -6,8 +6,22 @@ use yii\widgets\ActiveForm;
 
 <div class="container">
 
-    <?php
 
+    <?php if( Yii::$app->session->hasFlash('success') ): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo Yii::$app->session->getFlash('success'); ?>
+        </div>
+    <?php endif;?>
+
+    <?php if( Yii::$app->session->hasFlash('error') ): ?>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <?php echo Yii::$app->session->getFlash('error'); ?>
+    </div>
+    <?php endif;?>
+
+    <?php
     if (!empty($session['cart'])): ?>
         <div class="table-responsive">
             <table class="table table-hover table-striped">
@@ -33,11 +47,11 @@ use yii\widgets\ActiveForm;
                     </tr>
                 <?php endforeach;?>
                 <tr>
-                    <td colspan="4">Итого: </td>
+                    <td colspan="5">Итого: </td>
                     <td ><?= $session['cart.qty']?></td>
 
                 <tr>
-                    <td colspan="4">На сумму: </td>
+                    <td colspan="5">На сумму: </td>
                     <td ><?= $session['cart.sum']?></td>
                 </tr>
                 </tbody>
@@ -52,6 +66,7 @@ use yii\widgets\ActiveForm;
         <?php  ActiveForm::end()?>
     <?php else:?>
         <h3>Корзина пуста</h3>
+        <a href="<?= Url::home()?>">На главную</a>
     <?php endif;?>
 
 
