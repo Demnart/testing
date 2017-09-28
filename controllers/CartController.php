@@ -84,6 +84,11 @@ extends AppController
             {
                 $this->saveOrderItems($session['cart'],$order->id);
                 \Yii::$app->session->setFlash('success','Ваш заказ принят, менеджер скоро свяжется с вами');
+                \Yii::$app->mailer->compose('order',['session'=>$session])->setFrom(['art_ix@mail.ru'=>'E-Shopper'])
+                ->setTo($order->email)
+                ->setSubject('Заказ')
+                ->send();
+
                 $session->remove('cart');
                 $session->remove('cart.qty');
                 $session->remove('cart.sum');
