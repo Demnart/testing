@@ -10,6 +10,7 @@
    speed:300
  });
 
+
  function showCart(cart) {
 	 $('#cart .modal-body').html(cart);
 	 $('#cart').modal();
