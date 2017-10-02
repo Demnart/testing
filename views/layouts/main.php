@@ -98,7 +98,10 @@ LtAppAsset::register($this);
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="#" onclick="seeCart()"><i class="fa fa-shopping-cart" onclick="seeCart()"></i> Cart</a></li>
-                            <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><?php if(Yii::$app->user->isGuest):?><a href="<?= Url::to(['/admin'])?>"><i class="fa fa-lock"></i> Login</a>
+                                <?php else:?>
+                                    <a href="<?= Url::to(['/site/logout'])?>"><i class="fa fa-lock"></i>  <?= Yii::$app->user->identity['username']?> (Logout)</a>
+                                <?php endif;?></li>
                         </ul>
                     </div>
                 </div>
