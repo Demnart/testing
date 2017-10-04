@@ -127,24 +127,19 @@ LtAppAsset::register($this);
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="<?= Url::home()?>" class="active">Home</a></li>
-                            <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                            <li><a href="<?= Url::to(['/admin'])?>" class="active">Home</a></li>
+                            <li class="dropdown"><a href="#" >Категории<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu" >
+                                    <li><a href="<?= Url::to(['category/index']) ?>"> Список категорий</a></li>
+                                    <li><a href="<?= Url::to(['category/create']) ?>"> Создать категорию</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#">Продукты<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="shop.html">Products</a></li>
-                                    <li><a href="product-details.html">Product Details</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="#">Cart</a></li>
+                                    <li><a href="<?= Url::to(['product/index'])?>">Товары</a></li>
+                                </ul>
+                            </li>
 
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="blog.html">Blog List</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="contact-us.html">Contact</a></li>
                         </ul>
                     </div>
                 </div>
