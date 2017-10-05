@@ -108,6 +108,8 @@ use yii\helpers\Url;
                                 <?php if ($product->sale == 1):?>
                                     <?= Html::img("@web/images/home/sale.png",['class'=>'newarrival'])?>
                                 <?php endif;?>
+                                <br>
+                                <?= $product->content?>
                         </div><!--/product-information-->
 
                     </div>

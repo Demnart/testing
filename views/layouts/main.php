@@ -124,6 +124,10 @@ LtAppAsset::register($this);
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li><a href="<?= Url::home()?>" class="active">Home</a></li>
+                            <?php  if(!Yii::$app->user->isGuest):?>
+                                <li><a href="<?= Url::to(['/admin'])?>">Админ-панель</a></li>
+                            <?php endif;?>
+
                             <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="shop.html">Products</a></li>
